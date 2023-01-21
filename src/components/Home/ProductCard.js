@@ -2,6 +2,7 @@ import { Button, Card } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 import { addItem} from '../Store/Actions/cart.action';
+// import { UserOutlined } from '@ant-design/icons';
 
 const ProductCard = (props) =>{
     const dispatch = useDispatch();
@@ -31,6 +32,7 @@ const ProductCard = (props) =>{
   >
     <h3>{title}</h3>
     <h2>Price: INR {price}</h2>
+    <p>⭐ {rating.rate}/5 (👤{rating.count})</p>
     <Button type='primary' disabled={isButtonDisabled()} onClick={addItemToCart}> Add to cart </Button>
   </Card>
 );}

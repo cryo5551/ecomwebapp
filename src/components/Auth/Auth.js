@@ -15,6 +15,7 @@ const Auth = (props) => {
 
     const authToken = localStorage.getItem("authrization");
     if (!authToken) toast.warning("Youre not logged in");
+    
 
 
     const fetchProfileData = async () => {
@@ -66,6 +67,7 @@ const Auth = (props) => {
         } catch (err) {
             console.log('Error:', err);
         }
+        window.location.reload(false);
     };
 
 

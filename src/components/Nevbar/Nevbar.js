@@ -22,7 +22,7 @@ const Nevbar = () => {
 
     const logInOut = _ => {
         setToken(localStorage.getItem('authrization'));
-    }
+    } 
 
     return (
         <div style={{

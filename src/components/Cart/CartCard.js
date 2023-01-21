@@ -1,6 +1,12 @@
-import { Button, Card, Space } from 'antd';
+import { Button, Card, Space, Modal } from 'antd';
 import { useDispatch } from 'react-redux';
 import { removeItem, increaseQuantityByOne, decreaseQuantityByOne } from '../Store/Actions/cart.action';
+import { ExclamationCircleFilled } from '@ant-design/icons';
+const { confirm } = Modal;
+
+
+
+  
 
 
 
@@ -10,7 +16,21 @@ const CartCard = (props) =>{
     const dispatch = useDispatch();
     const {image,title,price, quantity} = props;
 
-    const removeItemFromCart = _ => {dispatch(removeItem(props.id))};
+    const removeItemFromCart = _ => {
+      confirm({
+        title: 'Do you Want to delete this item?',
+        icon: <ExclamationCircleFilled />,
+        content: title,
+        // okType: 'danger',
+        onOk() {
+          console.log('OK');
+          dispatch(removeItem(props.id))
+        },
+        onCancel() {
+          console.log('Cancel');
+        },
+      });
+    };
     const increaseQuantity = _ => {dispatch(increaseQuantityByOne(props.id))};
     const decreaseQuantity = _ => {dispatch(decreaseQuantityByOne(props.id))};
 
