@@ -11,6 +11,8 @@ import Home from "./components/Home/Home";
 import Auth from "./components/Auth/Auth";
 import Cart from "./components/Cart/Cart";
 import Profile from "./components/Profile/Profile";
+import Logout from "./components/Logout/LogOut";
+import ProductDetails from "./components/Products/ProductDetails";
 import 'antd/dist/reset.css';
 import MyLayout from "./components/Router/MyLayout";
 import 'react-toastify/dist/ReactToastify.css';
@@ -27,9 +29,11 @@ function App() {
           <Route path="/auth" element={<Auth />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/logout" element={<Logout />} />
+          <Route path="/product/:id" element={<ProductDetails />} />
         </Routes>
       </MyLayout>
-      <ToastContainer/>
+      < ToastContainer position="bottom-right"/>
     </BrowserRouter>
   );
 }

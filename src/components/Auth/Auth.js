@@ -1,19 +1,20 @@
-// import Nevbar from "../Nevbar/Nevbar";
 import React from 'react';
 import { Button, Checkbox, Form, Input } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { useDispatch }  from 'react-redux';
+import { useDispatch, useSelector }  from 'react-redux';
 import setUserData from '../Store/Actions/userAction'
+import { setToken } from '../Store/Actions/tokenAction';
 
 
 const Auth = (props) => {
     
     const navigate = useNavigate();
     const dispatch = useDispatch();
-
-
-    const authToken = localStorage.getItem("authrization");
+    
+    
+    const authToken = useSelector(store => store.token.token)
+    // const authToken = localStorage.getItem("authrization");
     if (!authToken) toast.warning("Youre not logged in");
     
 
@@ -32,6 +33,8 @@ const Auth = (props) => {
             {
                 console.log(data.profile);
                 dispatch(setUserData(data.profile));
+                // window.location.reload(false);
+
             }
 
             else toast.warning(data.message);
@@ -45,8 +48,6 @@ const Auth = (props) => {
 
 
     const onLogin = async (values) => {
-        console.log('Success:', values);
-
         try {
             const responce = await fetch('http://localhost:4500/auth', {
                 method: "POST",
@@ -57,7 +58,8 @@ const Auth = (props) => {
             const data = await responce.json();
 
             if (responce.status === 200) {
-                localStorage.setItem('authrization', data.token);
+                // localStorage.setItem('authrization', data.token);
+                dispatch(setToken(data.token));
                 fetchProfileData();
                 navigate("/");
                 toast.success("login successfull");
@@ -67,7 +69,6 @@ const Auth = (props) => {
         } catch (err) {
             console.log('Error:', err);
         }
-        window.location.reload(false);
     };
 
 

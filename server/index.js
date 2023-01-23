@@ -1,9 +1,6 @@
 const express = require("express");
 const { generate } = require("short-uuid");
 const Razorpay = require('razorpay');
-
-
-
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
@@ -13,8 +10,8 @@ app.use(bodyParser.json());
 app.use(cors());
 
 const instance = new Razorpay({
-  key_id: 'rzp_test_hbYCXI2cI0zN0B',
-  key_secret: 'kG0ngIx8ToqNUDPocbGylUbG',
+  key_id: 'rzp_test_aMcM3XT5Bnmh1l',
+  key_secret: '8C0kSJ7LZlw6YpUtlZb6t4a0',
 });
 
 
@@ -55,7 +52,7 @@ app.get("/profile", (req, res) => {
       email: "john@example.com",
       phone: "1234567890",
       address: {
-        city: "New York",
+        city: "New York City",
         state: "New York",
         country: "USA",
       },

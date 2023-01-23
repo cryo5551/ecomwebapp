@@ -6,5 +6,12 @@ function setUserData(data) {
         payload: data
     };
 }
-
 export default setUserData;
+
+export function removeUserData(data) {
+    return {
+        type: "REMOVE_USER_DATA",
+        payload: data
+    }
+}
+

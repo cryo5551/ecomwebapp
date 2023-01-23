@@ -1,4 +1,4 @@
-import { useState } from "react";
+// import { useState } from "react";
 // import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -13,16 +13,8 @@ const linkStyle = {
 
 const Nevbar = () => {
 
-    const {name, avatar} = useSelector(store => store.user)
-
-
-    const [token, setToken] = useState(localStorage.getItem('authrization'));
-
-    let isLoggenIn = token ? true : false; 
-
-    const logInOut = _ => {
-        setToken(localStorage.getItem('authrization'));
-    } 
+    const { avatar} = useSelector(store => store.user);
+    const token = useSelector(store => store.token.token);
 
     return (
         <div style={{
@@ -42,8 +34,8 @@ const Nevbar = () => {
                     color: 'white',
                 }}>
                 <Link style={linkStyle} to="/cart" >Cart</Link>
-                <Link style={linkStyle} to="/auth" >{(!name)?"Log In":`Hello, ${name}`}</Link>
-                <Link onClick={logInOut} style={linkStyle} to={isLoggenIn ? '/profile' : '/auth'} >
+                <Link style={linkStyle} to={(!token)? "/auth": "/logout"} >Auth</Link>
+                <Link style={linkStyle} to={token? '/profile' : '/auth'} >
                     <Avatar size={40} src={avatar} icon={<UserOutlined />} />
                 </Link>
 
