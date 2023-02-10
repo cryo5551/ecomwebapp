@@ -8,6 +8,7 @@
 - cheakout
 - restricted pages if not logged in 
 - self written api for login and showing profile data
+- Cheakout and payment by RAZORPAY (https://razorpay.com/docs/api/)
 
 ### state management by redux/ react-redux
 
