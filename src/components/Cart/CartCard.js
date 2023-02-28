@@ -5,11 +5,6 @@ import { ExclamationCircleFilled } from '@ant-design/icons';
 const { confirm } = Modal;
 
 
-
-  
-
-
-
 const { Meta } = Card;
 
 const CartCard = (props) =>{

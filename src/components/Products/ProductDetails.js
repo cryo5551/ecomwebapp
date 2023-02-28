@@ -10,6 +10,7 @@ const ProductDetails = () => {
 
 
     const { id: productID } = useParams()
+    
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState();
@@ -52,7 +53,7 @@ const ProductDetails = () => {
 
     useEffect(() => {
         fetchProducts();
-    }, [])
+    },[])
 
     if (loading) {
         return (

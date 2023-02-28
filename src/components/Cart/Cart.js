@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useSelector } from 'react-redux';
 import CartCard from './CartCard';
@@ -15,7 +14,10 @@ const Cart = () => {
         return acc + item.price * item.quantity;
     }, 0)
 
+    const token = useSelector(store => store.token.token);
+
     
+
     if (cartItems.length < 1) return (<h2>No Items in the cart</h2>);
 
     let PAYMENT_OPTIONS = {
@@ -94,14 +96,14 @@ const Cart = () => {
                         style={{ width: 300 }}
                     >
                         {cartItems.map(e =>
-                            <p style={{ display: 'flex', justifyContent: "space-between" }}>
+                            <p style={{ display: 'flex', justifyContent: "space-between" }} key={e.id}>
                                 <span>{e.title.substring(0, 21) + "..."}</span>
                                 <span>{e.quantity}×{e.price}</span>
                             </p>)}
 
                         <h1>INR {total.toFixed(2)}</h1>
 
-                        <Button width='100%' type='primary' block onClick={cheakOut} >Cheakout</Button>
+                        <Button width='100%' type='primary' block onClick={cheakOut} disabled={(!token)? true: false} >Cheakout</Button>
                     </Card>
                 </div>
             </div>

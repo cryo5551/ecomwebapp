@@ -48,13 +48,13 @@ app.get("/profile", (req, res) => {
   return res.status(200).json({
     message: "profile fetched successfully",
     profile: {
-      name: "John Doe",
+      name: "Bhawani Shankar",
       email: "john@example.com",
-      phone: "1234567890",
+      phone: "9411255965",
       address: {
-        city: "New York City",
-        state: "New York",
-        country: "USA",
+        city: "Jaipur",
+        state: "Rajasthan",
+        country: "INDIA",
       },
       avatar: "https://i.pravatar.cc/300"
     },

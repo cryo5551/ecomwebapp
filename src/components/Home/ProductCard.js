@@ -8,7 +8,6 @@ const ProductCard = (props) => {
   const navigate = useNavigate();
   const { image, title, price, rating, id } = props;
 
-
   return (
     <Card
       hoverable
@@ -18,7 +17,7 @@ const ProductCard = (props) => {
     >
       <Meta title={title} description={<h3>Price: INR {price}</h3>} />
       <span><Rate disabled allowHalf defaultValue={rating.rate} /> </span><br />
-      <span>👤{rating.count}</span>
+      {/* <span>👤{rating.count}</span> */}
     </Card>
   );
 }

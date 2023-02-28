@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 // import Column from 'antd/es/table/Column';
 
 
+
 const Profile = () => {
     const {name, email, phone , address, avatar} = useSelector(store => store.user)
     // console.log(user);
@@ -13,7 +14,8 @@ const Profile = () => {
        <h3>{name}</h3>
        <p>{email}</p>
        <p>{phone}</p>
-       <address>{address?.city}, {address?.city}, {address?.country}</address>
+       <p>{address?.city}, {address?.state}</p>
+       <p>{address?.country}</p>
 
        </Space> 
     );

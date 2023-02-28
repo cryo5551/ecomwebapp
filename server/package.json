@@ -13,6 +13,7 @@
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "razorpay": "^2.8.4",
+    "react-razorpay": "^1.2.0",
     "short-uuid": "^4.2.2"
   }
 }

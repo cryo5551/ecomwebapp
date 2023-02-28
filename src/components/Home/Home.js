@@ -1,7 +1,5 @@
 import { Spin, Space } from 'antd';
-
 import { useEffect, useState } from 'react';
-
 import ProductCard from './ProductCard';
 
 
@@ -17,7 +15,6 @@ const Home = () => {
     
 
     const fetchProducts = async () => {
-
 
         try {
             setLoading(true);
